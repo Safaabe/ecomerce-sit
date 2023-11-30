@@ -7,6 +7,15 @@
     box-sizing: border-box;
     font-family: "Spartan", sans-serif;
   }
+
+  #logo{
+    color: white;
+    margin-left: 50px;
+    margin-right: 100px;
+    font-family: "Allura",sans-serif;
+    font-size: 50px;
+
+  }
   #header{
     display: flex ;
     align-items: center;
@@ -17,15 +26,14 @@
     height: 100px;
     left: 0;
 
-    
-
-  }
+    }
 
   
   .navbar{
     display: flex;
     align-items:center ;
     justify-content: center;
+    justify-content: space-around;
     
 
   }
@@ -74,13 +82,18 @@ ul li:hover{
 
 ul li:hover ul.dropdown{
   display: block;
+
 }
 .dropdown li:hover{
-  background-color: white
+  background-color: #F3EEEA;
+  padding:10px;
 }
 ul.dropdown a{
   color:black;
   
+}
+ul li:hover ul.dropdown:first-child{
+  padding:100px;
 }
  
 
@@ -200,3 +213,27 @@ ul.dropdown a{
   width: 100%;
   border-radius: 20px;
 }
+
+
+ .main{
+  width: 330px;
+  flex-direction: row-reverse;
+  border: 03px solid white;
+  padding: 08px;
+  border-radius: 30px;
+  background-color: white;
+
+ }
+ input{
+  background-color: white;
+  border: 0px;
+  outline: 0px;
+  width: 250px;
+
+ } 
+ .icon-search{
+  color: black;
+  font-size: 20px;
+
+
+ }
