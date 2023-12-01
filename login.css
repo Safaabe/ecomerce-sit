@@ -125,7 +125,7 @@ input[type="submit"]:hover {
     position: relative;
     margin-right:-200px;
 }
-h2{
+h2 a{
     font-family: "Handlee",sans-serif;
     color:#041e42 ;
 }

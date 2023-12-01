@@ -1,8 +1,17 @@
 <?php
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "ecomerce";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 
 
 ?>
+
+
+
 
 
 
@@ -36,6 +45,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVARA</title>
   <script src="script.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handlee:wght@400&display=swap">
 
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
 
@@ -47,7 +57,7 @@
 
     <div class="head">
       <ul class="navbar">
-        <h2 id="logo"><a href="index.html">EVARA</a></h2>
+        <h2 id="logo"><a href="index.php">EVARA</a></h2>
         <div class="main">
           <input type="search" placeholder="type to search">
           <a><a><i class="fas fa-search icon-search" style="color: #000000;"></i></a>
@@ -120,24 +130,15 @@
   <section id="product1" class="section-p1">
     <h2>feauture Products</h2>
     <p>winter Collection New Modern Design</p>
-    <div class="pro">
-      <img src="" alt="">
+    <img src="picturces/a1.jpg">
 
-      <div class="des">
-        <span>pull and bear</span>
-        <p>Frenchy Single-color button<br> cardigan in twisted knit</p>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>400DH</h4>
-      </div>
-      <a href="#"><i class="fas fa-shopping-cart"></i></a>
-    </div>
+
+
   </section>
+
+
+
+
   <section id="banner" class="section-m1">
     <h4>Repair Services</h4>
     <h2>Up to<span>70% off</span> - All Clothes & Accessories</h2>
@@ -153,6 +154,7 @@
       <input type="text" placeholder="Your email address">
       <button class="normal">Sign Up</button>
     </div>
+
 
   </section>
   <footer class="section-p1">
