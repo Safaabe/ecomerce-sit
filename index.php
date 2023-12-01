@@ -1,3 +1,33 @@
+
+<?php
+ 
+ 
+ 
+ ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVARA</title>
   <script src="script.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hedvig+Serif:wght@400&display=swap">
+  
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
 
 
@@ -92,7 +122,7 @@
     <h2>feauture Products</h2>
     <p>winter Collection New Modern Design</p>
     <div class="pro">
-      <img src="p1.jpg" alt="">
+      <img src="" alt="">
 
       <div class="des">
         <span>pull and bear</span>

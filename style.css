@@ -12,7 +12,7 @@
     #logo a{
     text-decoration: none;
     color: #ffff;
-    font-family: "Hedvig Letters Serif",sans-serif;
+    font-family: "Handlee",sans-serif;
     margin-left: 50px;
     margin-right: 100px;
   
@@ -132,6 +132,7 @@ ul li:hover ul.dropdown:first-child{
   margin: 15px 0 20px 0;
   
  }
+ 
  #hero button{
   background-color: #041e42;
   color: white;
