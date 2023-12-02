@@ -235,7 +235,7 @@ if ($result->num_rows > 0) {
               <button class="item-cart-btn">Add To Cart</button>
             </div>
 
-            
+
 
   </section>
   <section id="banner" class="section-m1">
@@ -289,49 +289,49 @@ if ($result->num_rows > 0) {
         </div>
 
         <div class="item-container">
-        <div class="main-item">
-          <img src="getImage.php?id=13" alt="Product Image 1">
-          <h2 class="item-heading">
-            CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
-          </h2>
-          <p class="item-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
-          </p>
-          <ul class="rating">
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
+          <div class="main-item">
+            <img src="getImage.php?id=13" alt="Product Image 1">
+            <h2 class="item-heading">
+              CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
+            </h2>
+            <p class="item-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
+            </p>
+            <ul class="rating">
+              <i class="fas fa-star" style="color: #fff70f;"></i>
+              <i class="fas fa-star" style="color: #fff70f;"></i>
+              <i class="fas fa-star" style="color: #fff70f;"></i>
+              <i class="fas fa-star" style="color: #fff70f;"></i>
+              <i class="fas fa-star" style="color: #fff70f;"></i>
 
-          </ul>
-          <p class="item-price"><sup>$</sup>40.00/-</p>
-          <button class="item-cart-btn">Add To Cart</button>
-        </div>
+            </ul>
+            <p class="item-price"><sup>$</sup>40.00/-</p>
+            <button class="item-cart-btn">Add To Cart</button>
+          </div>
 
-        <div class="item-container">
-        <div class="main-item">
-          <img src="getImage.php?id=22" alt="Product Image 1">
-          <h2 class="item-heading">
-            CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
-          </h2>
-          <p class="item-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
-          </p>
-          <ul class="rating">
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
+          <div class="item-container">
+            <div class="main-item">
+              <img src="getImage.php?id=22" alt="Product Image 1">
+              <h2 class="item-heading">
+                CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
+              </h2>
+              <p class="item-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
+              </p>
+              <ul class="rating">
+                <i class="fas fa-star" style="color: #fff70f;"></i>
+                <i class="fas fa-star" style="color: #fff70f;"></i>
+                <i class="fas fa-star" style="color: #fff70f;"></i>
+                <i class="fas fa-star" style="color: #fff70f;"></i>
+                <i class="fas fa-star" style="color: #fff70f;"></i>
 
-          </ul>
-          <p class="item-price"><sup>$</sup>40.00/-</p>
-          <button class="item-cart-btn">Add To Cart</button>
-        </div>
+              </ul>
+              <p class="item-price"><sup>$</sup>40.00/-</p>
+              <button class="item-cart-btn">Add To Cart</button>
+            </div>
 
 
-  
+
 
   </section>
 
