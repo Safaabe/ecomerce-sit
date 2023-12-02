@@ -418,6 +418,7 @@ ul li:hover ul.dropdown:first-child{
 .item-container {
   background-color: #fff;
   width: 20rem;
+  height: 40rem;
   margin: 1rem;
   padding: 1rem;
   border-radius: 1rem;
@@ -457,7 +458,7 @@ ul li:hover ul.dropdown:first-child{
 }
 
 .rating i {
-  color:#088178;
+  color:#041e42;
   margin-bottom: 1rem;
 }
 
@@ -469,7 +470,7 @@ ul li:hover ul.dropdown:first-child{
   border: 1px;
   font-weight: bold;
   padding: .5rem 1rem;
-  background-color: #088178;
+  background-color: #041e42;
   color: #fff;
   border-radius: 2rem;
   font-size: 1.2rem;
@@ -481,13 +482,24 @@ ul li:hover ul.dropdown:first-child{
 
 .item-cart-btn:hover {
   color: #fff;
-  background-color: #088178;
+  background-color: #041e42;
 }
 .pro-container:hover{
   box-shadow: 20px 30px 20px grey;
-;
-}
 
+}
+#product1 .item-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  
+}
+#product2 .item-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  
+}
 
 
 
