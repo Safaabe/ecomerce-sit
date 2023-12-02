@@ -483,7 +483,10 @@ ul li:hover ul.dropdown:first-child{
   color: #fff;
   background-color: #088178;
 }
-  
+.pro-container:hover{
+  box-shadow: 20px 30px 20px grey;
+;
+}
 
 
 

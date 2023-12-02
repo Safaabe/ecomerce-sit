@@ -9,12 +9,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT image_path FROM products WHERE image_path='pictures/p8.jpg'";
 $result = $conn->query($sql);
 
+
 if ($result->num_rows > 0) {
+
   $row = $result->fetch_assoc();
   $image_path = $row["image_path"];
 } else {
   echo "No results found";
 }
+
 
 
 
@@ -143,51 +146,32 @@ if ($result->num_rows > 0) {
   <section id="product1" class="section-p1">
     <div id='up'>
       <h2>feauture Products</h2>
-    <p>winter Collection New Modern Design</p>
-  </div>
-    
+      <p>winter Collection New Modern Design</p>
+    </div>
+
     <div class="item-container">
       <div class="main-item">
-            <img src="<?php echo $image_path; ?>" alt="Image from Database">
-        </div>
-        <h2 class="item-heading">
-            CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
-        </h2>
-        <p class="item-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
-        </p>
-        <ul class="rating">
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-            <i class="fas fa-star" style="color: #fff70f;"></i>
-           
-        </ul>
-        <p class="item-price"><sup>$</sup>40.00/-</p>
-        <button class="item-cart-btn">Add To Cart</button>
+        <img src="<?php echo $image_path; ?>" alt="Image from Database">
+      </div>
+      <h2 class="item-heading">
+        CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
+      </h2>
+      <p class="item-description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
+      </p>
+      <ul class="rating">
+        <i class="fas fa-star" style="color: #fff70f;"></i>
+        <i class="fas fa-star" style="color: #fff70f;"></i>
+        <i class="fas fa-star" style="color: #fff70f;"></i>
+        <i class="fas fa-star" style="color: #fff70f;"></i>
+        <i class="fas fa-star" style="color: #fff70f;"></i>
+
+      </ul>
+      <p class="item-price"><sup>$</sup>40.00/-</p>
+      <button class="item-cart-btn">Add To Cart</button>
     </div>
-    
-</section>
-
-
-
-
-  <section id="banner" class="section-m1">
-    <h4>Repair Services</h4>
-    <h2>Up to<span>70% off</span> - All Clothes & Accessories</h2>
-    <button class="normal">Explore More</button>
 
   </section>
-  <section id="newsletters" class="section-p1 section ">
-    <div class="newtext">
-      <h4>Sign Up For Newletters</h4>
-      <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
-    </div>
-    <div class="form">
-      <input type="text" placeholder="Your email address">
-      <button class="normal">Sign Up</button>
-    </div>
 
 
   </section>
