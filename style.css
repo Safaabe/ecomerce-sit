@@ -8,6 +8,9 @@
     font-family: "Spartan", sans-serif;
   }
 
+
+
+
   
     #logo a{
     text-decoration: none;
@@ -61,6 +64,8 @@
   
 }
 
+
+
 ul li ul.dropdown li{
   display: block;
   color: black;
@@ -102,6 +107,47 @@ ul.dropdown a{
 }
 ul li:hover ul.dropdown:first-child{
   padding:100px;
+}
+
+.search-box{
+  width: 400px;
+  background: #fff;
+  /*margin: 200px auto 0;*/
+  border-radius: 20px;
+}
+.row{
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  height: 50px;
+  width: 300px;
+}
+.row input{
+  width: 300px;
+  flex: 1;
+border-radius: 20px;
+height: 40px;
+width: 300px;
+margin-right: 30px;
+border: 0;
+outline: 0;
+font-size: 18px;
+
+
+
+}
+button{
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 30px; 
+ color:#041e42;
+ font-size:22px ;
+ cursor: pointer;
+ margin-left:55px ;
+}
+::placeholder{
+  color:#555;
 }
 #lktba{
   flex-wrap: nowrap;
@@ -214,28 +260,6 @@ ul li:hover ul.dropdown:first-child{
 
 
 
- .main{
-  width: 330px;
-  flex-direction: row-reverse;
-  border: 03px solid white;
-  padding: 08px;
-  border-radius: 30px;
-  background-color: white;
-
- }
- input{
-  background-color: white;
-  border: 0px;
-  outline: 0px;
-  width: 250px;
-
- } 
- .icon-search{
-  color: black;
-  font-size: 20px;
-
-
- }
  .section-m1{
   margin: 40px 0;
  }

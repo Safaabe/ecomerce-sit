@@ -74,14 +74,23 @@ if ($result->num_rows > 0) {
     <div class="head">
       <ul class="navbar">
         <h2 id="logo"><a href="index.php">EVARA</a></h2>
-        <div class="main">
-          <input type="search" placeholder="type to search">
-          <a><a><i class="fas fa-search icon-search" style="color: #000000;"></i></a>
 
 
-        </div>
 
-        <li><a href="shop.html">Shop</a></li>
+        <li>
+          <div class="search-box">
+            <div class="row">
+              <input type="text" id="input-box" placeholder="search anything" autocomplete="off">
+              <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="result-box">
+
+            </div>
+          </div>
+        </li>
+
+
+        <li><a href="shop.php">Shop</a></li>
         <li><a href="about.html">About us</a></li>
         <li><a href="contact.html">contact us</a></li>
         <li><a href="cart.html"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
@@ -247,6 +256,97 @@ if ($result->num_rows > 0) {
 
   <section id="product2" class="section-p1">
     <div class="item-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="main-item">
         <img src="getImage.php?id=14" alt="Product Image 1">
         <h2 class="item-heading">
