@@ -1,3 +1,71 @@
+<?php
+
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "ecomerce";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$category = @$_GET["category"];
+if ($category) {
+  $query = "SELECT * FROM `products` WHERE category = ?";
+  $stmt = $conn->prepare($query);  // Use $conn instead of $db_con
+  $stmt->bind_param("s", $category);
+} else {
+  $query = "SELECT * FROM `products`";
+  $stmt = $conn->prepare($query);  // Use $conn instead of $db_con
+}
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->num_rows;
+$products = [];
+while ($row = $result->fetch_assoc()) {
+  $products[] = $row;
+}
+
+//search
+$search_name = isset($_GET['search_name']) ? $_GET['search_name'] : '';
+$sql = 'SELECT * FROM products WHERE name LIKE ?';
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $search_name_param);
+$search_name_param = '%' . $search_name . '%';
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
+// Close the database connection
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +74,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHOP</title>
-  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const searchInput = document.querySelector(".search");
+
+      // Add an event listener to detect changes in the search field
+      searchInput.addEventListener("input", function() {
+        // Automatically submit the form when there is a change
+        this.form.submit();
+      });
+
+      // Clear the search input after page load
+      window.onload = function() {
+        searchInput.value = '';
+      };
+    });
+  </script>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hedvig Letters Serif">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handlee:wght@400&display=swap">
@@ -21,34 +106,87 @@
       <ul class="navbar">
         <h2 id="logo"><a href="index.php">EVARA</a></h2>
         <li>
-          <div class="search-box">
-            <div class="row">
-              <input type="text" id="input-box" placeholder="search anything" autocomplete="off">
-              <button><i class="fas fa-search"></i></button>
-            </div>
-            <div class="result-box">
-
-            </div>
+          <form action="" method="GET" class="form">
+            <label for="search_name"></label>
+            <input type="text" name="search_name" class="search" placeholder="Search by Name:" value="<?php echo $search_name; ?>">
+          </form>
+        <li id='catego'>
+          <div class="abc">
+            <select name="category" id="category">
+              <option value="all">All</option>
+              <option value="Clothes">Clothes</option>
+              <option value="Shoes">Shoes</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+            <button type="submit">Filter</button>
           </div>
+        </li>
+
+
+
+
 
         <li><a href="shop.html">Shop</a></li>
 
-
-
-
         </li>
+
+
         <li><a href="about.html">About us</a></li>
         <li><a href="contact.html">contact us</a></li>
         <li><a href="cart.html"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
         <li><a href="profile.html"><i class="fas fa-user" style="color: #ffffff;"></i></a>
-          <ul class="dropdown">
+          <!--<ul class="dropdown">
             <li><a href="login.php">log in</a></li>
             <li><a href="UserRegister.php">sign up</a></li>
-          </ul>
+          </ul>-->
         </li>
-
-
-
-
       </ul>
     </div>
+  </section>
+  <div id="hero">
+    <img src="hero2.jpg" alt="">
+  </div>
+
+
+  <div class="container">
+    <?php
+    foreach ($products as $products) {
+      echo '<div class="product">';
+      echo '<td><img width="150" src="' . $products["image_path"] . '"/></td>';
+      echo '<h3 class="cat">' . $products['category'] . '</h3>';
+      echo '<h3>' . $products['name'] . '</h3>';
+      echo '<p>Price: $' . $products['price'] . '</p>';
+      //echo '<a href="produitpage.php?id=' . $produit['id'] . '">Voir Produit</a>';
+      echo '</div>';
+    }
+    ?>
+</body>
+
+</html>
+
+
+<!--<?php
+/*if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $selectedCategory = $_POST['category'];
+
+    $sql = ($selectedCategory === 'all')
+        ? "SELECT * FROM products"
+        : "SELECT * FROM products WHERE category = '$selectedCategory'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '<div>';
+            echo '<h2>' . $row['name'] . '</h2>';
+            echo '<p>Category: ' . $row['category'] . '</p>';
+            // Add more details as needed
+            echo '</div>';
+        }
+    } else {
+        echo 'No products found.';
+    }
+}
+
+$conn->close();
+?>-->*/

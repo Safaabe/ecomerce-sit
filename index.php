@@ -56,7 +56,8 @@ if ($result->num_rows > 0) {
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.css">
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EVARA</title>
@@ -64,7 +65,7 @@ if ($result->num_rows > 0) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handlee:wght@400&display=swap">
 
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
-
+  <link rel="stylesheet" href="home.css">
 
 </head>
 
@@ -106,10 +107,6 @@ if ($result->num_rows > 0) {
 
       </ul>
     </div>
-
-
-
-
   </section>
 
   <section id="hero">
@@ -118,11 +115,12 @@ if ($result->num_rows > 0) {
       <h2>Super value deals</h2>
       <h1>On all products</h1>
       <p>Save more with coupons & up 70% off</p>
+      <button>Shop Now</button>
     </div>
-    <button>Shop Now</button>
-    <div class="img">
+
+    <!--<div class="img">
       <img class="g" src="lovepik-fashion-model-shopping-picture_501399540-removebg-preview.png">
-    </div>
+    </div>-->
   </section>
 
   <section id="feauture" class="section-p1">
@@ -157,35 +155,12 @@ if ($result->num_rows > 0) {
       <h2>feauture Products</h2>
       <p>winter Collection New Modern Design</p>
     </div>
-
-    <div class="item-container">
-      <div class="main-item">
-        <img src="getImage.php?id=44" alt="Product Image 1">
-        <h2 class="item-heading">
-          CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
-        </h2>
-        <p class="item-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
-        </p>
-        <ul class="rating">
-          <i class="fas fa-star" style="color: #fff70f;"></i>
-          <i class="fas fa-star" style="color: #fff70f;"></i>
-          <i class="fas fa-star" style="color: #fff70f;"></i>
-          <i class="fas fa-star" style="color: #fff70f;"></i>
-          <i class="fas fa-star" style="color: #fff70f;"></i>
-
-        </ul>
-        <p class="item-price"><sup>$</sup>40.00/-</p>
-        <button class="item-cart-btn">Add To Cart</button>
-      </div>
-
-
-
+    <div id="rows">
       <div class="item-container">
         <div class="main-item">
-          <img src="getImage.php?id=51" alt="Product Image 1">
+          <img src="getImage.php?id=44" alt="Product Image 1">
           <h2 class="item-heading">
-            WANZ Denim Pants women Hip hop
+            CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
           </h2>
           <p class="item-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
@@ -198,15 +173,17 @@ if ($result->num_rows > 0) {
             <i class="fas fa-star" style="color: #fff70f;"></i>
 
           </ul>
-          <p class="item-price"><sup>$</sup>11.00/-</p>
+          <p class="item-price"><sup>$</sup>40.00/-</p>
           <button class="item-cart-btn">Add To Cart</button>
         </div>
 
+
+
         <div class="item-container">
           <div class="main-item">
-            <img src="getImage.php?id=50" alt="Product Image 1">
+            <img src="getImage.php?id=51" alt="Product Image 1">
             <h2 class="item-heading">
-              CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
+              WANZ Denim Pants women Hip hop
             </h2>
             <p class="item-description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
@@ -219,13 +196,13 @@ if ($result->num_rows > 0) {
               <i class="fas fa-star" style="color: #fff70f;"></i>
 
             </ul>
-            <p class="item-price"><sup>$</sup>40.00/-</p>
+            <p class="item-price"><sup>$</sup>11.00/-</p>
             <button class="item-cart-btn">Add To Cart</button>
           </div>
 
           <div class="item-container">
             <div class="main-item">
-              <img src="getImage.php?id=53" alt="Product Image 1">
+              <img src="getImage.php?id=50" alt="Product Image 1">
               <h2 class="item-heading">
                 CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
               </h2>
@@ -242,6 +219,29 @@ if ($result->num_rows > 0) {
               </ul>
               <p class="item-price"><sup>$</sup>40.00/-</p>
               <button class="item-cart-btn">Add To Cart</button>
+            </div>
+
+            <div class="item-container">
+              <div class="main-item">
+                <img src="getImage.php?id=53" alt="Product Image 1">
+                <h2 class="item-heading">
+                  CABLE TRIM CHUNKY<br> HAND KNIT CARDIGAN
+                </h2>
+                <p class="item-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit labore quae quaerat eaque.
+                </p>
+                <ul class="rating">
+                  <i class="fas fa-star" style="color: #fff70f;"></i>
+                  <i class="fas fa-star" style="color: #fff70f;"></i>
+                  <i class="fas fa-star" style="color: #fff70f;"></i>
+                  <i class="fas fa-star" style="color: #fff70f;"></i>
+                  <i class="fas fa-star" style="color: #fff70f;"></i>
+
+                </ul>
+                <p class="item-price"><sup>$</sup>40.00/-</p>
+                <button class="item-cart-btn">Add To Cart</button>
+              </div>
+
             </div>
 
 
