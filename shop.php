@@ -76,6 +76,9 @@ $stmt->close();
   <title>SHOP</title>
 
   <script>
+
+
+
     document.addEventListener("DOMContentLoaded", function() {
       const searchInput = document.querySelector(".search");
 
@@ -92,7 +95,7 @@ $stmt->close();
     });
   </script>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hedvig Letters Serif">
+  <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hedvig Letters Serif">-->
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handlee:wght@400&display=swap">
 
@@ -121,24 +124,18 @@ $stmt->close();
             <button type="submit">Filter</button>
           </div>
         </li>
-
-
-
-
-
-        <li><a href="shop.html">Shop</a></li>
-
-        </li>
-
+      </li>
+ </form>
+<li><a href="shop.php">Shop</a></li>
 
         <li><a href="about.html">About us</a></li>
         <li><a href="contact.html">contact us</a></li>
         <li><a href="cart.html"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
         <li><a href="profile.html"><i class="fas fa-user" style="color: #ffffff;"></i></a>
-          <!--<ul class="dropdown">
+          <ul class="dropdown">
             <li><a href="login.php">log in</a></li>
             <li><a href="UserRegister.php">sign up</a></li>
-          </ul>-->
+          </ul>
         </li>
       </ul>
     </div>
@@ -155,11 +152,56 @@ $stmt->close();
       echo '<td><img width="150" src="' . $products["image_path"] . '"/></td>';
       echo '<h3 class="cat">' . $products['category'] . '</h3>';
       echo '<h3>' . $products['name'] . '</h3>';
+      
       echo '<p>Price: $' . $products['price'] . '</p>';
-      //echo '<a href="produitpage.php?id=' . $produit['id'] . '">Voir Produit</a>';
+      echo '<a href="produit.php?id=' . $products['id'] . '">Voir Produit</a>';
       echo '</div>';
     }
     ?>
+
+    <footer class="section-p1">
+      <div class="col">
+        <h4 id="lol">EVARA</h4>
+        <h4>contact</h4>
+        <p><strong>Address:</strong>586 california,street 88,Morocco</p>
+        <p><strong>Phone:</strong>+212 689 541 25</p>
+        <p><strong>Hours</strong>10:00 -18:00,Mon -Sat </p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <div class="icon">
+              <a href="#"><i class="fab fa-facebook fa-2x" style="color: #000000;"></i></a>
+              <a href="#"><i class="fab fa-instagram fa-2x" style="color: #000000;"></i></a>
+              <a href="#"><i class="fab fa-twitter fa-2x" style="color: #000000;"></i></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery information</a>
+        <a href="#">privacy Policy</a>
+        <a href="#">Tems & Conditions</a>
+        <a href="#">contact us</a>
+
+      </div>
+      <div class="col">
+        <h4></h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#"> My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#"> Helps</a>
+      </div>
+      <div class="pay">
+        <p>Secured Payment Gateway</p>
+        <img src="pay.png" alt="">
+      </div>
+
+  </div>
+  </footer>
 </body>
 
 </html>

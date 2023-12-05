@@ -1,7 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+<?php
+
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "ecomerce";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 
-* {
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handlee:wght@400&display=swap">
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+    * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -74,15 +116,15 @@ ul li ul.dropdown li{
   display: block;
   color: black;
   margin-bottom: 15px;
-  margin-top:15 px;
+ /* margin-top:15 px;*/
   
   
 
 }
-ul li ul.dropdown li:last-child{
+ul.dropdown li a:last-child{
   border: none;
 }
-ul li ul.dropdown{
+ ul.dropdown{
   width: 100%;
   background: white;
   position: relative;
@@ -93,10 +135,10 @@ ul li ul.dropdown{
   /*border-radius: 10px;*/
   border-left: none;
 }
-ul li:hover{
+/*ul li:hover{
   background-color:#041e42;
   
-}
+}*/
 
 ul li:hover ul.dropdown{
   display: block;
@@ -110,9 +152,7 @@ ul.dropdown a{
   color:black;
   
 }
-ul li:hover ul.dropdown:first-child{
-  padding:100px;
-}
+ 
 
 
 
@@ -176,148 +216,49 @@ button {
   cursor: pointer; /* Add pointer cursor on hover */
   
 }
-#hero{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  margin-top: 60px;
-}
-
-#hero img{
-  /*margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 950px;
-  height: 500px;;
-  align-content: center;*/
-  max-width: 100%;
-  max-height: 100%;
-  
-  
-}
-.container {
-  display: flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  grid-gap:20px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
-}
-.container:hover{
-  box-shadow: #555;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.product {
-  background-color:#F9F9F9;
-  width: 180px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
-
-.product h3 {
-  font-size:16px;
-  font-weight:700;
-  margin: 0;
-}
-
-.product p {
-  margin: 5px 0;
-}
-
-.product a {
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: #041e42;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-.cat{
-  color: #45D62E;
-}
-
-@media (max-width: 600px) {
-  .container {
-      padding: 10px;
-  }
-}
-footer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:space-between;
-  margin-right: 50px;
-
-  margin-top: 50px;
-}
-footer col{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  justify-content: space-around;
-
-}
-footer #lol{
- 
-  margin-bottom: 30px;
-  font-size:20px ;
-  font-family: "Spartan", sans-serif;
-  color: #041e42;
 
 
-}
-footer h4{
-  font-size: 14px;
-  padding-bottom: 20px;
-  
-}
-footer p{
-  font-size: 13px;
-  margin: 0 0 8px 0;
-}
-footer a{
-  font-size: 13px;
-  text-decoration: none;
-  color:#222 ;
-  margin-bottom: 10px;
-  display: block;
-}
-footer .follow{
-  margin-top: 50px;
-}
-footer .follow a{
-  display: inline;
-  justify-content: space-around;
-  font-size: 15px;
-  margin-right: 10px;
-}
 
-footer .follow i{
-  margin-top: 70px;
-  padding-right: 4px;
-  cursor: pointer;
-  font-size: 24px;
-  margin-right: 15px;
 
-}
-footer .follow i:hover{
-  color:#088178
-}
 
-/*#up h2,p{
- text-align: center;
- 
-}*/
+</style>
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+</head>
+<body>
+<section id="header">
+    <div class="head">
+      <ul class="navbar">
+        <h2 id="logo"><a href="index.php">EVARA</a></h2>
+        <li>
+          <form action="" method="GET" class="form">
+            <label for="search_name"></label>
+            <input type="text" name="search_name" class="search" placeholder="Search by Name" >
+        </li>
+        <li id='catego'>
+          <div class="abc">
+            <select name="category" id="category">
+              <option value="all">All</option>
+              <option value="Clothes">Clothes</option>
+              <option value="Shoes">Shoes</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+            <button type="submit">Filter</button>
+          </div>
+        </li>
+      </form>
+      <li><a href="shop.php">Shop</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="contact.html">contact us</a></li>
+      <li><a href="cart.html"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
+      <li><a href="profile.html"><i class="fas fa-user" style="color: #ffffff;"></i></a>
+        <ul class="dropdown">
+          <li><a href="login.php">log in</a></li>
+          <li><a href="UserRegister.php">sign up</a></li>
+        </ul>
+      </li>
+      </ul>
+    </div>
+  </section>
+    
+</body>
+</html>
