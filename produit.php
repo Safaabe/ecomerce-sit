@@ -23,6 +23,21 @@ $result = $stmt->get_result();
 $products = $result->fetch_assoc();
 $stmt->close();
 
+//productsComments
+$id_product = isset($_POST['id_product']) ? $_POST['id_product'] : null;
+$user_name = isset($_POST['user_name']) ? $_POST['user_name'] : null;
+$comment = isset($_POST['comment']) ? $_POST['comment'] : null;
+
+    $stmt = $conn->prepare("INSERT INTO comments (product_id, username, comment) VALUES (?, ?, ?)");
+    $stmt->bind_param("iss", $product_id, $user_name, $comment);
+
+    /*if ($stmt->execute()) {
+        echo "<p>Comment submitted successfully!</p>";
+    } else {
+        echo "<p>Error submitting comment.</p>";
+    }*/
+
+    $stmt->close();
 
 
 
@@ -313,12 +328,19 @@ button {
 .des a {
     text-decoration: none;
 }
+#icon {
+    font-size: 24px;
+    color: #00ff1e;
+    margin-left: 55px;
+    margin-top: 10px;
+  }
 
 
 
 
 </style>
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+
 </head>
 <body>
 <section id="header">
@@ -371,13 +393,27 @@ button {
             <form action="commander.php" method="post">
                 <input type="hidden" name="id_products" value="<?php echo $products["id"]; ?>">
                 <label for="quantity">Quantité:</label>
-                <input class="quantity-input" type="number" id="quantity" name="quantity" value="1" min="1"><br><br>
+                 <input class="quantity-input" type="number" id="quantity" name="quantity" value="1" min="1">
+                 <a href="#"><i class="fas fa-cart-plus" style="color: #00ff1e;" id="icon" ></i></a>
+
+
                 <button class="order-button">Commander</button>
             </form>
         </div>
             
         
     </div>
+    <!--commentsection-->
+    <form method="post" action="">
+    <input type="hidden" name="product_id" <?php echo $products["id"]; ?>> <!-- Assuming the product ID is 1 for example -->
+    <label for="user_name">Your Name:</label>
+    <input type="text" id="user_name" name="user_name" required>
+
+    <label for="comment">Your Comment:</label>
+    <textarea id="comment" name="comment" rows="4" required></textarea>
+
+    <button type="submit">Submit Comment</button>
+</form>
     <?php endif; ?>
     <!--<div class="product-details">
          Checking if $products is defined before accessing its elements -->
