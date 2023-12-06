@@ -115,7 +115,7 @@ if ($result->num_rows > 0) {
       <h2>Super value deals</h2>
       <h1>On all products</h1>
       <p>Save more with coupons & up 70% off</p>
-      <button>Shop Now</button>
+      <button id="shop"><a href="shop.php"> Shop Now</a></button>
     </div>
 
     <!--<div class="img">

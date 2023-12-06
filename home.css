@@ -215,6 +215,13 @@ font-size: 18px;
 
   
 }
+ imag a {
+  text-decoration: none;
+  color: #fff;
+  
+
+}
+
 
 .container {
   position: relative;

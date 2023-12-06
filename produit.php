@@ -9,10 +9,21 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 
 
+
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+$id = @$_GET["id"];
+$query = "SELECT * FROM products WHERE id = ? ";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$products = $result->fetch_assoc();
+$stmt->close();
+
+
 
 
 
@@ -124,16 +135,30 @@ ul li ul.dropdown li{
 ul.dropdown li a:last-child{
   border: none;
 }
+ul.navbar{
+    position: relative;
+
+}
+ul.navbar li{
+    position: relative;
+}
  ul.dropdown{
   width: 100%;
   background: white;
-  position: relative;
+  position: absolute;
   z-index: 99;
   display: none;
   color: black;
+  top:100%;
   width: 150px;
-  /*border-radius: 10px;*/
-  border-left: none;
+  border-right: 1px solid;
+  
+  
+  
+}
+ul.dropdown li{
+    width: 200px;
+
 }
 /*ul li:hover{
   background-color:#041e42;
@@ -216,7 +241,78 @@ button {
   cursor: pointer; /* Add pointer cursor on hover */
   
 }
+.product-container {
+    display: inline;
 
+}
+
+.product-container .imag {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 50%; /* Adjust the width as needed */
+}
+
+.des {
+    padding: 20px;
+    max-width: 500px;
+    width: 50%; /* Adjust the width as needed */
+    position: absolute;
+    right: -0px;
+    top: 0;
+    margin-top: 150px;
+    padding-left: -1px;
+    left:600px;
+   
+}
+
+.des .product-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.des .product-title {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.des .product-description {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.des .product-price {
+    font-size: 20px;
+    color: #45D62E;
+    margin-bottom: 50px;
+}
+
+.des .quantity-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.des .order-button {
+    display: block;
+    width: 100%;
+    background-color: #041e42;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.des a {
+    text-decoration: none;
+}
 
 
 
@@ -259,6 +355,41 @@ button {
       </ul>
     </div>
   </section>
+
+  <div class="center-body">
+    
+  <?php if (isset($products) && is_array($products) && count($products) > 0): ?>
+
+        <div class="product-container">
+            <div class="imag"> <img class="product-image" src="<?php echo $products["image_path"]; ?>" alt="Product Image"></div></div>
+            
+            <div class="des">
+                <h2 class="product-title"><?php echo $products["name"]; ?></h2>
+            <p class="product-price">Catégorie :<?php echo $products["category"]; ?></p>
+            <p class="product-description"><?php echo $products["description"]; ?></p>
+            <p class="product-price"><?php echo $products["price"]; ?>$</p>
+            <form action="commander.php" method="post">
+                <input type="hidden" name="id_products" value="<?php echo $products["id"]; ?>">
+                <label for="quantity">Quantité:</label>
+                <input class="quantity-input" type="number" id="quantity" name="quantity" value="1" min="1"><br><br>
+                <button class="order-button">Commander</button>
+            </form>
+        </div>
+            
+        
+    </div>
+    <?php endif; ?>
+    <!--<div class="product-details">
+         Checking if $products is defined before accessing its elements -->
+
+       <!-- <?php if (isset($products) && is_array($products) && count($products) > 0): ?>
+            <h2>Category : <?php echo $products[0]['category']; ?></h2>
+            <p>Other product details...</p>
+        <?php else: ?>
+            <p>No product found.</p>
+        <?php endif; ?>
+    </div>-->
+        
     
 </body>
 </html>
