@@ -3,7 +3,7 @@
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
-$dbname = "ecomerce";
+$dbname = "ecommerce";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -22,7 +22,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $products = $result->fetch_assoc();
 $stmt->close();
-
+/*
 //productsComments
 $id_product = isset($_POST['id_product']) ? $_POST['id_product'] : null;
 $user_name = isset($_POST['user_name']) ? $_POST['user_name'] : null;
@@ -37,7 +37,6 @@ $comment = isset($_POST['comment']) ? $_POST['comment'] : null;
         echo "<p>Error submitting comment.</p>";
     }*/
 
-    $stmt->close();
 
 
 
@@ -403,6 +402,7 @@ button {
             
         
     </div>
+    
     <!--commentsection-->
     <form method="post" action="">
     <input type="hidden" name="product_id" <?php echo $products["id"]; ?>> <!-- Assuming the product ID is 1 for example -->
@@ -415,6 +415,7 @@ button {
     <button type="submit">Submit Comment</button>
 </form>
     <?php endif; ?>
+  
     <!--<div class="product-details">
          Checking if $products is defined before accessing its elements -->
 
