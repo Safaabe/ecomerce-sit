@@ -22,20 +22,25 @@ $stmt->execute();
 $result = $stmt->get_result();
 $products = $result->fetch_assoc();
 $stmt->close();
-/*
-//productsComments
-$id_product = isset($_POST['id_product']) ? $_POST['id_product'] : null;
-$user_name = isset($_POST['user_name']) ? $_POST['user_name'] : null;
-$comment = isset($_POST['comment']) ? $_POST['comment'] : null;
 
-    $stmt = $conn->prepare("INSERT INTO comments (product_id, username, comment) VALUES (?, ?, ?)");
-    $stmt->bind_param("iss", $product_id, $user_name, $comment);
+if(isset($_POST['add_to_cart'])){
+  $products_name=$_post['name'];
+  $products_name=$_post['price'];
+  $products_name=$_post['image_path'];
+  $products_quantity=1;
 
-    /*if ($stmt->execute()) {
-        echo "<p>Comment submitted successfully!</p>";
-    } else {
-        echo "<p>Error submitting comment.</p>";
-    }*/
+  $select_cart=mysqli_query($conn,"select * from cart where name='$products_name'");
+  if(mysqli_num_rows($select_cart)>0){
+    echo "product already added to cart";
+  }else{
+    $insert_products=mysqli_query($conn,"insert into cart (name,price,image,quantity) values('$products_name','$products_price','$products_image,$products_quantity')");
+  echo'product added to the cart';
+  }
+
+  
+ 
+   
+}
 
 
 
@@ -323,15 +328,14 @@ button {
     cursor: pointer;
     margin-top: 50px;
 }
+ 
 
-.des a {
-    text-decoration: none;
-}
 #icon {
     font-size: 24px;
     color: #00ff1e;
-    margin-left: 55px;
-    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    top: 10px;
   }
 
 
@@ -366,8 +370,17 @@ button {
       <li><a href="shop.php">Shop</a></li>
       <li><a href="about.html">About us</a></li>
       <li><a href="contact.html">contact us</a></li>
-      <li><a href="cart.html"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
-      <li><a href="profile.html"><i class="fas fa-user" style="color: #ffffff;"></i></a>
+      <li><a href="addtocart.php"><i class="fas fa-shopping-bag" style="color: white;"></i>
+     <?php
+     if(isset($_SESSION['cart'])){
+      $cout=count($_SESSION['cart']);
+      echo "<span id=\"cart_cout\" class=\"text-warningbg-light>$count</span>";
+     }else{
+      echo "<span id=\"cart_cout\" class=\"text-warningbg-light>0</span>";
+     }
+      ?>
+    </a></li>
+      <li><a href="profile.php"><i class="fas fa-user" style="color: #ffffff;"></i></a>
         <ul class="dropdown">
           <li><a href="login.php">log in</a></li>
           <li><a href="UserRegister.php">sign up</a></li>
@@ -389,44 +402,35 @@ button {
             <p class="product-price">Catégorie :<?php echo $products["category"]; ?></p>
             <p class="product-description"><?php echo $products["description"]; ?></p>
             <p class="product-price"><?php echo $products["price"]; ?>$</p>
+            <form action="addtocart.php" method="post">
+    <input type="hidden" name="product_id" value="<?php echo $products["id"]; ?>">
+    <input type="hidden" name="product_name" value="<?php echo $products["name"]; ?>">
+    <input type="hidden" name="product_price" value="<?php echo $products["price"]; ?>">
+    <input type="hidden" name="product_image" value="<?php echo $products["image_path"]; ?>">
+    <label for="quantity" id="quantite">Quantité:</label>
+                 <input class="quantity-input" type="number" id="quantity" name="quantity" value="1" min="1">
+    <button type="submit" class="add-to-cart-button">
+        <i class="fas fa-cart-plus" style="color: #00ff1e;" id="icon"></i>
+    </button>
+
+</form>
+            
+            
             <form action="commander.php" method="post">
                 <input type="hidden" name="id_products" value="<?php echo $products["id"]; ?>">
-                <label for="quantity">Quantité:</label>
-                 <input class="quantity-input" type="number" id="quantity" name="quantity" value="1" min="1">
-                 <a href="#"><i class="fas fa-cart-plus" style="color: #00ff1e;" id="icon" ></i></a>
+                
 
 
                 <button class="order-button">Commander</button>
             </form>
         </div>
-            
-        
-    </div>
-    
-    <!--commentsection-->
-    <form method="post" action="">
-    <input type="hidden" name="product_id" <?php echo $products["id"]; ?>> <!-- Assuming the product ID is 1 for example -->
-    <label for="user_name">Your Name:</label>
-    <input type="text" id="user_name" name="user_name" required>
-
-    <label for="comment">Your Comment:</label>
-    <textarea id="comment" name="comment" rows="4" required></textarea>
-
-    <button type="submit">Submit Comment</button>
-</form>
-    <?php endif; ?>
-  
-    <!--<div class="product-details">
-         Checking if $products is defined before accessing its elements -->
-
-       <!-- <?php if (isset($products) && is_array($products) && count($products) > 0): ?>
-            <h2>Category : <?php echo $products[0]['category']; ?></h2>
-            <p>Other product details...</p>
-        <?php else: ?>
-            <p>No product found.</p>
+        </div>    
         <?php endif; ?>
-    </div>-->
+
+    </body>
+    
+  </html>
+   
         
     
-</body>
-</html>
+

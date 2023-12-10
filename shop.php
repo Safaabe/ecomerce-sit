@@ -130,7 +130,7 @@ $stmt->close();
 
         <li><a href="about.html">About us</a></li>
         <li><a href="contact.html">contact us</a></li>
-        <li><a href="cart.html"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
+        <li><a href="addtocart.php"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
         <li><a href="profile.html"><i class="fas fa-user" style="color: #ffffff;"></i></a>
           <ul class="dropdown">
             <li><a href="login.php">log in</a></li>
