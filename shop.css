@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Spartan", sans-serif;
+    
   }
 
 
@@ -45,6 +46,7 @@
     align-items:center ;
     justify-content: center;
     justify-content: space-around;
+   
     
     
 
@@ -52,6 +54,7 @@
 .navbar li{
   list-style: none;
   padding: 0 20px;
+  
 
 }
 .navbar li a{
@@ -59,17 +62,15 @@
   font-size: 16px;
   font-weight: 600;
   color: white;
+  top: 0px;
 
 }
 .navbar li a:hover{
   
-  font-size:18px;
+  font-size:17px;
   
 }
-ul li:hover{
-  background-color:#041e42;
-  
-}
+ 
 ul li ul.dropdown li{
   display: block;
   color: black;
@@ -79,49 +80,42 @@ ul li ul.dropdown li{
   
 
 }
-ul li ul.dropdown li:last-child{
-  border: none;
-}
-ul li ul.dropdown{
-  width: 100%;
-  background: white;
-  position: relative;
-  z-index: 99;
-  display: none;
-  color: black;
-  width: 150px;
-  /*border-radius: 10px;*/
-  border-left: none;
-}
-ul li:hover{
-  background-color:#041e42;
-  
-}
+
+
 
 ul li:hover ul.dropdown{
   display: block;
 
 }
-.dropdown li:hover{
+/*.dropdown li:hover{
   background-color: #F3EEEA;
   padding:10px;
-}
+}*/
 ul.dropdown a{
   color:black;
   
 }
-ul li:hover ul.dropdown:first-child{
-  padding:100px;
+
+ul li ul.dropdown{
+  width: 100%;
+  background: white;
+  position: absolute;
+  z-index: 99;
+  display: none;
+  color: black;
+  width: 100px;
+  border-radius: 10px;
+  border-left: none;
 }
 
 
 
-.search-box{
-    width: 400px;
-    background: #fff;
-    /*margin: 200px auto 0;*/
-    border-radius: 20px;
+
+.search-container {
+  display: flex;
+  align-items: center;
 }
+
 
  .form input{
   display: flex;
@@ -135,7 +129,14 @@ margin-right: 30px;
 border: 0;
 outline: 0;
 font-size: 18px;
- 
+} 
+
+.search-btn{
+
+  padding: 10px;
+  margin-left: -25px;
+  border-radius: 30px;
+  
 
 
 }
@@ -155,26 +156,43 @@ font-size: 18px;
 }
 
 
-#category {
+#category{
   
-  padding: 8px; /* Adjust padding as needed */
-  font-size: 16px; /* Adjust font size as needed */
-  border: 1px solid #ccc; /* Add border for better visibility */
-  border-radius: 4px; /* Optional: Add border-radius for rounded corners */
+  padding: 8px; 
+  font-size: 16px; 
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+  margin-left: 50px;
+  margin-top: 50px;
 }
+
+
 .abc{
   display: flex;
   justify-content: space-between;
 }
-button {
-  padding: 8px; /* Adjust padding as needed */
+ #filter {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  
+
+
   font-size: 16px; /* Adjust font size as needed */
   background-color: #fff; /* Add your desired background color */
   color: black; /* Add your desired text color */
-  border: none; /* Remove default button border */
-  border-radius: 4px; /* Optional: Add border-radius for rounded corners */
+  border: 1px solid #555; /* Remove default button border */
+  border-radius: 10px; /* Optional: Add border-radius for rounded corners */
   cursor: pointer; /* Add pointer cursor on hover */
+  margin-right: 1500px;
   
+  
+}
+select[name="filter_category"]{
+  padding: 8px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  border: 1px solid #ccc; /* Add border for better visibility */
+  border-radius: 4px; /* Optional: Add border-radius for rounded corners */
+
 }
 #hero{
   display: flex;

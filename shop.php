@@ -1,5 +1,4 @@
 <?php
-
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
@@ -7,42 +6,47 @@ $dbname = "ecommerce";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
-
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
+
 $category = @$_GET["category"];
 if ($category) {
-  $query = "SELECT * FROM `products` WHERE category = ?";
-  $stmt = $conn->prepare($query);  // Use $conn instead of $db_con
-  $stmt->bind_param("s", $category);
+    $query = "SELECT * FROM `products` WHERE category = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $category);
 } else {
-  $query = "SELECT * FROM `products`";
-  $stmt = $conn->prepare($query);  // Use $conn instead of $db_con
+    $query = "SELECT * FROM `products`";
+    $stmt = $conn->prepare($query);
 }
+
 $stmt->execute();
-$result = $stmt->get_result();
-$row = $result->num_rows;
+$resultProducts = $stmt->get_result();
+$row = $resultProducts->num_rows;
 $products = [];
-while ($row = $result->fetch_assoc()) {
-  $products[] = $row;
+while ($row = $resultProducts->fetch_assoc()) {
+    $products[] = $row;
 }
 
-//search
 $search_name = isset($_GET['search_name']) ? $_GET['search_name'] : '';
-$sql = 'SELECT * FROM products WHERE name LIKE ?';
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('s', $search_name_param);
-$search_name_param = '%' . $search_name . '%';
-$stmt->execute();
-$result = $stmt->get_result();
-$stmt->close();
-// Close the database connection
+$search_category = isset($_GET['search_category']) ? $_GET['search_category'] : '';
 
+// Filtrage par catégorie
+$filter_category = isset($_GET['filter_category']) ? $_GET['filter_category'] : '';
 
+// Requête pour récupérer les produits
+$select_products_query = "SELECT * FROM products WHERE 
+                         (name LIKE '%$search_name%') AND
+                         ('$filter_category' = '' OR category = '$filter_category')";
+$resultFilteredProducts = $conn->query($select_products_query);
+
+$conn->close();
 ?>
+
+<!-- Your HTML remains the same -->
+
+
 
 
 
@@ -76,24 +80,34 @@ $stmt->close();
   <title>SHOP</title>
 
   <script>
+  
+
 
 
 
     document.addEventListener("DOMContentLoaded", function() {
       const searchInput = document.querySelector(".search");
 
-      // Add an event listener to detect changes in the search field
-      searchInput.addEventListener("input", function() {
-        // Automatically submit the form when there is a change
-        this.form.submit();
-      });
+      
 
       // Clear the search input after page load
       window.onload = function() {
         searchInput.value = '';
       };
     });
-  </script>
+
+  
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.querySelector(".search");
+
+    const filterForm = document.querySelector('.form');
+    filterForm.addEventListener('submit', function(event) {
+      // Optionally, you can clear the search input on form submission
+      // searchInput.value = '';
+    });
+  });
+</script>
 
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hedvig Letters Serif">-->
 
@@ -109,23 +123,18 @@ $stmt->close();
       <ul class="navbar">
         <h2 id="logo"><a href="index.php">EVARA</a></h2>
         <li>
-          <form action="" method="GET" class="form">
-            <label for="search_name"></label>
-            <input type="text" name="search_name" class="search" placeholder="Search by Name:" value="<?php echo $search_name; ?>">
-          </form>
-        <li id='catego'>
-          <div class="abc">
-            <select name="category" id="category">
-              <option value="all">All</option>
-              <option value="Clothes">Clothes</option>
-              <option value="Shoes">Shoes</option>
-              <option value="Accessories">Accessories</option>
-            </select>
-            <button type="submit">Filter</button>
-          </div>
-        </li>
-      </li>
- </form>
+        <form action="chercher.php" method="GET" class="form">
+  <div class="search-container">
+    <label for="search_name"></label>
+    <input type="text" name="search_name" class="search" placeholder="Search by Name:" value="<?php echo $search_name; ?>">
+    <button type="submit" class="search-btn">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>
+
+
+
 <li><a href="shop.php">Shop</a></li>
 
         <li><a href="about.html">About us</a></li>
@@ -140,6 +149,20 @@ $stmt->close();
       </ul>
     </div>
   </section>
+
+  <form action="filter.php" method="GET" class="form">
+  <div id='catego'></div>
+    <div class="abc">
+      <select name="filter_category" id="category">
+        <option value="all">All</option>
+        <option value="Clothes" <?php echo ($filter_category == 'clothes') ? 'selected' : ''; ?>>Clothes</option>
+        <option value="Shoes" <?php echo ($filter_category == 'shoes') ? 'selected' : ''; ?>>Shoes</option>
+        <option value="Accessories"  <?php echo ($filter_category == 'accessories') ? 'selected' : ''; ?>>Accessories</option>
+      </select>
+      <button type="submit"  id="filter">filter</button>
+    </div>
+</div>
+</form>
   <div id="hero">
     <img src="hero2.jpg" alt="">
   </div>
@@ -158,6 +181,9 @@ $stmt->close();
       echo '</div>';
     }
     ?>
+  </div>
+    
+    
 
     <footer class="section-p1">
       <div class="col">
