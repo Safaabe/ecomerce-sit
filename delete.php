@@ -10,11 +10,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if(isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $item_id = $_GET['id'];
+if(isset($_GET['product_id']) && is_numeric($_GET['product_id'])) {
+    $item_id = $_GET['product_id'];
 
     // Delete item from the cart
-    $delete_query = $conn->prepare("DELETE FROM cart WHERE id = ?");
+    $delete_query = $conn->prepare("DELETE FROM cart WHERE product_id = ?");
     $delete_query->bind_param("i", $item_id);
     $delete_query->execute();
     $delete_query->close();

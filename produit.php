@@ -7,42 +7,65 @@ $dbname = "ecommerce";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
-
-
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
-}
-$id = @$_GET["id"];
-$query = "SELECT * FROM products WHERE id = ? ";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-$products = $result->fetch_assoc();
-$stmt->close();
+} else {
+  $id = @$_GET["id"];
+  $query = "SELECT * FROM products WHERE id = ?";
+  $stmt = $conn->prepare($query);
+  $stmt->bind_param("i", $id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $products = $result->fetch_assoc();
+  $stmt->close();
 
-if (isset($_POST['add_to_cart'])) {
-  $products_name = $_POST['product_name'];
-  $products_image = $_POST['product_image'];
-  $products_price = $_POST['product_price'];
-  $products_quantity = 1;
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
+    // Handle the "Add to Cart" form submission
+    $product_id = $_POST["product_id"];
+    $product_name = $_POST["product_name"];
+    $product_price = $_POST["product_price"];
+    $product_image = $_POST["product_image"];
+    $quantity = $_POST["quantity"];
 
-  $select_cart = mysqli_query($conn, "select * from cart where name='$products_name'");
-  if (mysqli_num_rows($select_cart) > 0) {
-    echo "product already added to cart";
-  } else {
-    $insert_products = mysqli_query($conn, "insert into cart (name,image,price,quantity) values('$products_name','$products_image','$products_price,$products_quantity')");
-    echo 'product added to the cart';
+    // Calculate the total price for the product
+    $total_price = $product_price * $quantity;
+
+    // Add the product to the cart (session)
+    if (!isset($_SESSION["cart"])) {
+      $_SESSION["cart"] = array();
+    }
+
+    // Check if the product is already in the cart
+    if (isset($_SESSION["cart"][$product_id])) {
+      // Increment the quantity if the product is already in the cart
+      $_SESSION["cart"][$product_id]["quantity"] += $quantity;
+    } else {
+      // Add a new entry to the cart for the product
+      $_SESSION["cart"][$product_id] = array(
+        "name" => $product_name,
+        "price" => $product_price,
+        "image" => $product_image,
+        "quantity" => $quantity,
+        "total_price" => $total_price
+      );
+
+      // Add the product to the database cart
+      $user_id = 1; // Replace this with the actual user ID when you have user authentication
+      $query = "INSERT INTO cart (user_id, product_id, product_name, product_price, product_image, quantity, total_price) VALUES (?, ?, ?, ?, ?, ?, ?)";
+      $stmt = $conn->prepare($query);
+      $stmt->bind_param("iisdidi", $user_id, $product_id, $product_name, $product_price, $product_image, $quantity, $total_price);
+      $stmt->execute();
+      $stmt->close();
+    }
+
+    // Redirect to the "addtocart.php" page after adding the product to the cart
+    header("Location: addtocart.php");
+    exit();
   }
 }
-
-
-
-
-
 ?>
+
 
 
 
@@ -427,10 +450,11 @@ if (isset($_POST['add_to_cart'])) {
           <label for="quantity" id="quantite">Quantité:</label>
           <input class="quantity-input" type="number" id="quantity" name="quantity" value="1" min="1">
           <button type="submit" class="add-to-cart-button" name="add_to_cart">
-            <i class="fas fa-cart-plus" style="color: #00ff1e;" id="icon"></i>
-          </button>
+        <i class="fas fa-cart-plus" style="color: #00ff1e;" id="icon"></i> Add to Cart
+    </button>
+</form>
 
-        </form>
+      
 
 
         <form action="commander.php" method="post">
