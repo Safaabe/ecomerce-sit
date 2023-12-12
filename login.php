@@ -2,7 +2,7 @@
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
-$dbname = "ecomerce";
+$dbname = "ecommerce";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {

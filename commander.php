@@ -29,9 +29,9 @@ if (isset($_POST["submit"])) {
     $quantity = intval($_POST["quantity"]);
     $total_amount = intval($_POST["total_amount"]);
     $liv = 1;
-    $sql = "INSERT INTO `commandes` ( command_id,product_id,user_id, adress, code_postal, number_phone, quantity, total_amount,date_of_delivering, status,username,image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO `orders` ( command_id,product_id,user_id, adress, code_postal, number_phone, quantity, total_amount,date_of_delivering, status,username,image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssiiiii", $username, $adress, $code_postal, $number_phone, $quantity, $total_amount, $_SESSION["client_id"], $_POST["produit_id"], $liv);
+    $stmt->bind_param("ssssiiiii", $command_id, $product_id, $user_id, $address, $code_postal, $number_phone,$quantity,$total_amount, $_SESSION["user_id"], $_POST["produit_id"], $status);
     if ($stmt->execute()) {
         header("Location: mescommandes.php");
         exit;
@@ -121,7 +121,8 @@ if (isset($_POST["submit"])) {
             <label for="adress">Phone_number :</label><br>
             <input required name="number_phone" type="text"><br>
             <label for="adress">Quantity :</label><br>
-            <input value="<?php echo $_POST["quantity"]; ?>" name="quant" type="number"><br>
+            <input value="<?php echo isset($_POST["quantity"]) ? $_POST["quantity"] : ''; ?>" name="quantity" type="number"><br>
+
             <label for="prix">Prix Total ($) :</label><br>
             <?php
             $total_amount=0;

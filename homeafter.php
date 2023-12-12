@@ -97,8 +97,9 @@ if ($result->num_rows > 0) {
         <li><a href="addtocart.php"><i class="fas fa-shopping-bag" style="color: white;"></i></a></li>
         <li><a href="profile.html"><i class="fas fa-user" style="color: #ffffff;"></i></a>
           <ul class="dropdown">
-            <li><a href="login.php">log in</a></li>
-            <li><a href="UserRegister.php">sign up</a></li>
+            <li><a href="profil.php">My Profil</a></li>
+            <li><a href="orders.php">My Orders</a></li>
+            <li><a href="logout.php">Log out</a></li>
           </ul>
         </li>
 
