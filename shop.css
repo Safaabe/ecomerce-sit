@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Spartan", sans-serif;
+    background-color: red;
     
   }
 
@@ -171,9 +172,22 @@ font-size: 18px;
   display: flex;
   justify-content: space-between;
 }
- #filter {
+#fil{
   padding-top: 2px;
   padding-bottom: 2px;
+    
+  color: #fff;
+  border: 2px solid #041e42;
+  background-color: #041e42;
+  padding:20px;
+    border-radius: 50px;
+    margin-left: 300px;
+    margin-bottom: 0px;
+    outline: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: -10px;
+    cursor: pointer;
   
 
 

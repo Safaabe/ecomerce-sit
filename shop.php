@@ -114,6 +114,354 @@ $conn->close();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handlee:wght@400&display=swap">
 
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Spartan", sans-serif;
+    
+  }
+
+
+
+
+  
+    #logo a{
+    text-decoration: none;
+    color: #ffff;
+    font-family: "Handlee",sans-serif;
+    margin-left: -40px;
+    margin-right: 100px;
+   
+  
+  }
+
+  #header{
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color:#041e42;
+    /*box-shadow: 0 5px 15px  rgba(0, 0, 0, 0.73);*/
+    height: 90px;
+    left: 0;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    
+    
+
+    }
+
+  
+  .navbar{
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    justify-content: space-around;
+   
+    
+    
+
+  }
+.navbar li{
+  list-style: none;
+  padding: 0 20px;
+  
+
+}
+.navbar li a{
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  top: 0px;
+
+}
+.navbar li a:hover{
+  
+  font-size:17px;
+  
+}
+ 
+ul li ul.dropdown li{
+  display: block;
+  color: black;
+  margin-bottom: 15px;
+  margin-top:15 px;
+  
+  
+
+}
+
+
+
+ul li:hover ul.dropdown{
+  display: block;
+
+}
+/*.dropdown li:hover{
+  background-color: #F3EEEA;
+  padding:10px;
+}*/
+ul.dropdown a{
+  color:black;
+  
+}
+
+ul li ul.dropdown{
+  width: 100%;
+  background: white;
+  position: absolute;
+  z-index: 99;
+  display: none;
+  color: black;
+  width: 100px;
+  border-radius: 10px;
+  border-left: none;
+}
+
+
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+
+ .form input{
+  display: flex;
+
+    width: 300px;
+    flex: 1;
+border-radius: 18px;
+height: 40px;
+width: 300px;
+margin-right: 30px;
+border: 0;
+outline: 0;
+font-size: 18px;
+} 
+
+.search-btn{
+
+  padding: 10px;
+  margin-left: -25px;
+  border-radius: 30px;
+  
+
+
+}
+/*li  input{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    width: 30px; 
+   color:#041e42;
+   font-size:22px ;
+   cursor: pointer;
+   margin-left:55px ;
+}*/
+
+.dropdown{
+  border: 1px solid #555;
+}
+
+
+#category{
+  
+  padding: 8px; 
+  font-size: 16px; 
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+
+.abc{
+  display: flex;
+  justify-content: space-between;
+  
+
+}
+#fil{
+  
+  color: #fff;
+  border: 2px solid #041e42;
+  background-color: #041e42;
+  padding:15px 30px;
+  
+    border-radius: 20px;
+    margin-left: 200px;
+    margin-bottom: 0px;
+    outline: none;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: -100px;
+    cursor: pointer;
+  
+  
+  
+}
+select[name="filter_category"]{
+  padding: 8px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  border: 1px solid #ccc; /* Add border for better visibility */
+  border-radius: 4px; /* Optional: Add border-radius for rounded corners */
+
+}
+#hero{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  margin-top: 60px;
+}
+
+#hero img{
+  /*margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 950px;
+  height: 500px;;
+  align-content: center;*/
+  max-width: 100%;
+  max-height: 100%;
+  
+  
+}
+.container {
+  display: flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  grid-gap:20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+.container:hover{
+  box-shadow: #555;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product {
+  background-color:#F9F9F9;
+  width: 180px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.product h3 {
+  font-size:16px;
+  font-weight:700;
+  margin: 0;
+}
+
+.product p {
+  margin: 5px 0;
+}
+
+.product a {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #041e42;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.cat{
+  color: #45D62E;
+}
+
+@media (max-width: 600px) {
+  .container {
+      padding: 10px;
+  }
+}
+footer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  margin-right: 50px;
+
+  margin-top: 50px;
+}
+footer col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  justify-content: space-around;
+
+}
+footer #lol{
+ 
+  margin-bottom: 30px;
+  font-size:20px ;
+  font-family: "Spartan", sans-serif;
+  color: #041e42;
+
+
+}
+footer h4{
+  font-size: 14px;
+  padding-bottom: 20px;
+  
+}
+footer p{
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+footer a{
+  font-size: 13px;
+  text-decoration: none;
+  color:#222 ;
+  margin-bottom: 10px;
+  display: block;
+}
+footer .follow{
+  margin-top: 50px;
+}
+footer .follow a{
+  display: inline;
+  justify-content: space-around;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+footer .follow i{
+  margin-top: 70px;
+  padding-right: 4px;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 15px;
+
+}
+footer .follow i:hover{
+  color:#088178
+}
+
+/*#up h2,p{
+ text-align: center;
+ 
+}*/
+  </style>
 </head>
 
 <body>
@@ -159,9 +507,10 @@ $conn->close();
         <option value="Shoes" <?php echo ($filter_category == 'shoes') ? 'selected' : ''; ?>>Shoes</option>
         <option value="Accessories"  <?php echo ($filter_category == 'accessories') ? 'selected' : ''; ?>>Accessories</option>
       </select>
-      <button type="submit"  id="filter">filter</button>
+      </div>
     </div>
-</div>
+      <button type="submit" id="fil">filter</button>
+  
 </form>
   <div id="hero">
     <img src="hero2.jpg" alt="">

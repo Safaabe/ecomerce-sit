@@ -567,8 +567,19 @@ font-size: 18px;
    align-items: center;
 
 }
+fe-box {
+  transition: transform 0.8s ease;
+}
 
+/* Define the starting state of the element */
+.fe-box[data-aos='zoom-in'] {
+  transform: scale(0.5);
+}
 
+/* Define the ending state of the element when it's animated */
+.fe-box[data-aos='zoom-in'].aos-animate {
+  transform: scale(1);
+}
 
 
 

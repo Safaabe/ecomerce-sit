@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if(isset($_GET['product_id']) && is_numeric($_GET['product_id'])) {
+if (isset($_GET['product_id']) && is_numeric($_GET['product_id'])) {
     $item_id = $_GET['product_id'];
 
     // Delete item from the cart
@@ -23,4 +23,3 @@ if(isset($_GET['product_id']) && is_numeric($_GET['product_id'])) {
 // Redirect back to the cart page
 header("Location: addtocart.php");
 exit();
-?>

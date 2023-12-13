@@ -66,7 +66,8 @@ if ($result->num_rows > 0) {
 
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
   <link rel="stylesheet" href="home.css">
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
@@ -124,27 +125,27 @@ if ($result->num_rows > 0) {
   </section>
 
   <section id="feauture" class="section-p1">
-    <div class="fe-box">
+    <div class="fe-box" data-aos="zoom-in" data-aos-duration="800">
       <img src="f1.png" width="500px">
       <h6 id="c0">free shipement </h6>
     </div>
-    <div class="fe-box">
+    <div class="fe-box" data-aos="zoom-in" data-aos-duration="800">
       <img src="f2.png" width="500px">
       <h6 id="c1">Online Order </h6>
     </div>
-    <div class="fe-box">
+    <div class="fe-box" data-aos="zoom-in" data-aos-duration="800">
       <img src="f3.png" width="500px">
       <h6 id="c2">Save Money </h6>
     </div>
-    <div class="fe-box">
+    <div class="fe-box" data-aos="zoom-in" data-aos-duration="800">
       <img src="f4.png" width="500px">
       <h6 id="c3">Promotions </h6>
     </div>
-    <div class="fe-box">
+    <div class="fe-box" data-aos="zoom-in" data-aos-duration="800">
       <img src="f5.png" width="500px">
       <h6 id="c4">Happy Sell </h6>
     </div>
-    <div class="fe-box">
+    <div class="fe-box" data-aos="zoom-in" data-aos-duration="800">
       <img src="f6.png" width="500px">
       <h6 id="c5">F24/7 Support </h6>
     </div>
@@ -478,6 +479,11 @@ if ($result->num_rows > 0) {
 
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script>
+  AOS.init();
+</script>
+
 </body>
 
 
